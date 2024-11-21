@@ -67,7 +67,7 @@ def scrape_website():
     url=input("$-$ Enter the URL for scraping:")
     response=requests.get(url)
     soup=BeautifulSoup(response.text,'html.parser')
-    stringforSearch='text'
+    stringforSearch='text' #specify the string to search for in the website
     for tag in soup.find_all(stringforSearch,href=True):
         print(f"Title:{tag.get_text().strip()}, Link:{tag['href']}")
 
