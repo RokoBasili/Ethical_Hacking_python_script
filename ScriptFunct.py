@@ -67,8 +67,8 @@ def scrape_website():
     url=input("$-$ Enter the URL for scraping:")
     response=requests.get(url)
     soup=BeautifulSoup(response.text,'html.parser')
-
-    for tag in soup.find_all('a',href=True):
+    stringforSearch='text'
+    for tag in soup.find_all(stringforSearch,href=True):
         print(f"Title:{tag.get_text().strip()}, Link:{tag['href']}")
 
 def sql_injector_scan():
@@ -94,7 +94,7 @@ def main():
         print("1. $-$ Directory Brute Force <brute force a list of directories from a known website and choosed words as a dictonary> ")
         print("2. $-$ Network scan <scan a network within a specified range with some important port numbers> ...requires root permissions")
         print("3. $-$ Brute Force Login <tries to login into a webpage with selected/most common usernames and passwords found")
-        print("4. $-$ WebSite Scraper <>")
+        print("4. $-$ WebSite Scraper <find all specified string/characters for a website>")
         print("5. $-$ SQL Injection Scanner <scannes the Url for known types of SQL injections and prints a message if an vulnerability was found")
         print("0. $-$ Abort")
 
